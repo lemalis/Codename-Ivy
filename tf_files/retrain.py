@@ -1063,6 +1063,10 @@ def main(_):
     # when exporting models.
     train_saver = tf.train.Saver()
 
+    print("123456789")
+    print(train_saver.saver_def.filename_tensor_name)
+    print(train_saver.saver_def.restore_op_name)
+
     # Run the training for as many cycles as requested on the command line.
     for i in range(FLAGS.how_many_training_steps):
       # Get a batch of input bottleneck values, either calculated fresh every
@@ -1145,6 +1149,11 @@ def main(_):
 
     # Write out the trained graph and labels with the weights stored as
     # constants.
+    saverr = tf.train.Saver()
+    print(1234567890)
+    print(saverr.saver_def.filename_tensor_name)
+    print(saverr.saver_def.restore_op_name)
+
     tf.logging.info('Save final result to : ' + FLAGS.output_graph)
     if wants_quantization:
       tf.logging.info('The model is instrumented for quantization with TF-Lite')
